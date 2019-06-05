@@ -9,7 +9,7 @@ jobs:
           command: docker build -t jordond/cyclecheck-api .
   release:
     docker:
-      - image: circleci/latest
+      - image: circleci/node:latest
     steps:
       - checkout
       - restore_cache:
