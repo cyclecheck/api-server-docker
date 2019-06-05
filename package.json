@@ -42,7 +42,7 @@
       {
         "path": "@semantic-release/github",
         "assets": [
-          "packages/*.zip",
+          "Dockerfile",
           "CHANGELOG.md"
         ]
       }
