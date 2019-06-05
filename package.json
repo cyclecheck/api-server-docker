@@ -1,0 +1,57 @@
+{
+  "name": "api-server-docker",
+  "version": "0.0.0",
+  "description": "DockerFile for creating a CycleCheck API Server container",
+  "author": "Jordon de Hoog <jordon.dehoog@gmail.com>",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyclecheck/api-server-docker"
+  },
+  "license": "MIT",
+  "scripts": {
+    "commit": "git-cz",
+    "build": "",
+    "semantic-release": "semantic-release"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@semantic-release/changelog": "^3.0.2",
+    "@semantic-release/git": "^7.0.8",
+    "commitizen": "3.1.1",
+    "cz-conventional-changelog": "2.1.0",
+    "semantic-release": "^15.13.12"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branch": "master",
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ],
+    "publish": [
+      {
+        "path": "@semantic-release/github",
+        "assets": [
+          "packages/*.zip",
+          "CHANGELOG.md"
+        ]
+      }
+    ],
+    "success": [
+      "@semantic-release/github"
+    ],
+    "fail": [
+      "@semantic-release/github"
+    ]
+  }
+}
