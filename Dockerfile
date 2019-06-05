@@ -1,8 +1,8 @@
 FROM node:10.16.0-stretch
 LABEL author=jordond
 
-COPY init.sh /
-COPY start.sh /
+COPY scripts/init.sh /
+COPY scripts/start.sh /
 
 RUN apt-get update -qq \
   && apt-get install -y jq \
