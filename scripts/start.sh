@@ -1,14 +1,14 @@
 #!/bin/bash
 
-BIN_PATH=/opt/app/cyclecheck-api-docker/cyclecheck-api
+BIN_PATH=/opt/app/cyclecheck-api-standalone/cyclecheck-api
 
-if [ -e /data/cyclecheck-api/main.js ] && [ -e /data/cyclecheck-api/package.json ]; then
+if [ -e /data/cyclecheck-api/cyclecheck-api ] && [ -e /data/cyclecheck-api/package.json ]; then
   echo "Detected a instance of cyclecheck in the data directory, using that instead!"
   cd /data/cyclecheck
 
   echo "Installing dependencies..."
   npm install --production > /dev/null
-  BIN_PATH=/data/cyclecheck-api/main.js
+  BIN_PATH=/data/cyclecheck-api/cyclecheck-api
 else
   echo "Initializing..."
   /init.sh /opt/app

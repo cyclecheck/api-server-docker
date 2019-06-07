@@ -52,14 +52,16 @@ docker run -d \
   jordond/cyclecheck-api
 ```
 
-API will be available at `http://127.0.0.1:9999`.
-
-### Options
+### Docker Options
 
 - `-p <PORT>:8000`: Local port to map to server
 - `-v <PATH_TO_DATA>:/data`: Directory to store all application data, ie: database, config, etc
 
+API will be available at `http://127.0.0.1:9999` (if properly configured, see below).
+
 **Note:** The API server requires that a `cyclecheck.env` file be placed in the `<PATH_TO_DATA>:/data` volume to run.
+
+## Configuring
 
 See [CycleCheck-API](https://github.com/cyclecheck/api-server/blob/master/README.md#setup) for more details.
 

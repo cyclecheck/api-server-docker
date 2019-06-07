@@ -12,21 +12,19 @@ fi
 echo "Using path: $OUTPUT"
 
 downloadLatestRelease() {
-  url=$(curl -sL $GH_URL | jq -r '.assets[].browser_download_url' | grep cyclecheck-api-docker.zip)
+  url=$(curl -sL $GH_URL | jq -r '.assets[].browser_download_url' | grep cyclecheck-api-standalone.zip)
   wget -q -O "$OUTPUT/release.zip" $url
 
   unzip -o "$OUTPUT/release.zip" -d $OUTPUT
   rm "$OUTPUT/release.zip"
 
   if [ ! -e /data/cyclecheck.env ]; then
-    cp "$OUTPUT/cyclecheck-api-docker/cyclecheck.sample.env" /data
+    cp "$OUTPUT/cyclecheck-api-standalone/cyclecheck.sample.env" /data
   fi
-
-  echo $VERSION_REMOTE > "$OUTPUT/version"
 }
 
 echo "Checking version for $REPO"
-VERSION_LOCAL=$(cat "$OUTPUT/version" 2>/dev/null)
+VERSION_LOCAL=$($OUTPUT/cyclecheck-api -v 2>/dev/null)
 VERSION_REMOTE=$(curl -sL $GH_URL | jq -r ".name")
 
 set -e
@@ -47,7 +45,7 @@ else
   downloadLatestRelease
 fi
 
-version=$(cat "$OUTPUT/version")
+version=$($OUTPUT/cyclecheck-api -v)
 echo "Latest version of $REPO:$version is ready to go!"
 
 # Installing PM2
