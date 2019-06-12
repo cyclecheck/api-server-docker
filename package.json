@@ -16,11 +16,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@semantic-release/changelog": "3.0.2",
-    "@semantic-release/git": "7.0.8",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/git": "7.0.12",
     "commitizen": "3.1.1",
     "cz-conventional-changelog": "2.1.0",
-    "semantic-release": "15.13.12"
+    "semantic-release": "15.13.16"
   },
   "config": {
     "commitizen": {
