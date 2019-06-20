@@ -1,5 +1,6 @@
 FROM node:10.16.0-stretch
-LABEL author=jordond
+LABEL author=cyclecheck
+LABEL repo='https://github.com/cyclecheck/api-server-docker'
 
 COPY scripts/init.sh /
 COPY scripts/start.sh /
