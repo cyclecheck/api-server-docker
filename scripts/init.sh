@@ -4,6 +4,7 @@ REPO="cyclecheck/api-server"
 GH_URL="https://api.github.com/repos/$REPO/releases/latest"
 
 OUTPUT="/opt/app"
+BIN="$OUTPUT/cyclecheck-api-standalone/cyclecheck-api"
 
 if [[ ! -z "$1" ]]; then
 OUTPUT=$1
@@ -24,7 +25,7 @@ downloadLatestRelease() {
 }
 
 echo "Checking version for $REPO"
-VERSION_LOCAL=$($OUTPUT/cyclecheck-api -v 2>/dev/null)
+VERSION_LOCAL=$($BIN -v 2>/dev/null)
 VERSION_REMOTE=$(curl -sL $GH_URL | jq -r ".name")
 
 set -e
@@ -45,7 +46,7 @@ else
   downloadLatestRelease
 fi
 
-version=$($OUTPUT/cyclecheck-api -v)
+version=$($BIN -v)
 echo "Latest version of $REPO:$version is ready to go!"
 
 # Installing PM2

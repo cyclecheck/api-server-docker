@@ -5,6 +5,14 @@ LABEL repo='https://github.com/cyclecheck/api-server-docker'
 COPY scripts/init.sh /
 COPY scripts/start.sh /
 
+ENV ENV_PATH=/data/cyclecheck.env
+ENV NODE_DOCKER=true
+ENV NODE_ENV=production
+ENV HOST=0.0.0.0
+ENV PORT=8000
+ENV DATA_DIR=/data
+VOLUME /data
+
 RUN apt-get update -qq \
   && apt-get install -y jq \
   && mkdir /opt/app \
@@ -19,13 +27,5 @@ USER node
 WORKDIR /opt/app
 
 EXPOSE 8000
-
-ENV ENV_PATH=/data/cyclecheck.env
-ENV NODE_DOCKER=true
-ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV PORT=8000
-ENV DATA_DIR=/data
-VOLUME /data
 
 ENTRYPOINT ["/start.sh"]
