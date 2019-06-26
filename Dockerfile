@@ -15,8 +15,7 @@ VOLUME /data
 
 RUN apt-get update -qq \
   && apt-get install -y jq \
-  && mkdir /opt/app \
-  && mkdir /data \
+  && mkdir -p /opt/app \
   && chmod +x /init.sh \
   && chmod +x /start.sh \
   && chown -R node:node /opt /init.sh /start.sh /data \
