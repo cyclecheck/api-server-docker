@@ -10,9 +10,9 @@ jobs:
   release:
     docker:
       - image: circleci/node:latest
-    machine: true
     steps:
       - checkout
+      - setup_remote_docker
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
