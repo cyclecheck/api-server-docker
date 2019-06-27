@@ -25,7 +25,7 @@ downloadLatestRelease() {
 }
 
 echo "Checking version for $REPO"
-VERSION_LOCAL=$($BIN -v 2>/dev/null)
+VERSION_LOCAL="v$($BIN -v 2>/dev/null)"
 VERSION_REMOTE=$(curl -sL $GH_URL | jq -r ".name")
 
 set -e
@@ -46,7 +46,7 @@ else
   downloadLatestRelease
 fi
 
-version=$($BIN -v)
+version="v$($BIN -v)"
 echo "Latest version of $REPO:$version is ready to go!"
 
 # Installing PM2
