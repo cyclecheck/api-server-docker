@@ -17,6 +17,7 @@
   "dependencies": {},
   "devDependencies": {
     "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/exec": "^3.3.5",
     "@semantic-release/git": "7.0.13",
     "commitizen": "3.1.1",
     "cz-conventional-changelog": "2.1.0",
@@ -26,30 +27,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "release": {
-    "branch": "master",
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/github",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog"
-    ],
-    "publish": [
-      {
-        "path": "@semantic-release/github",
-        "assets": [
-          "CHANGELOG.md"
-        ]
-      }
-    ],
-    "success": [
-      "@semantic-release/github"
-    ],
-    "fail": [
-      "@semantic-release/github"
-    ]
   }
 }
