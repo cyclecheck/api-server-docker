@@ -14,7 +14,7 @@ A container for running the [API Server](https://github.com/cyclecheck/api-serve
   - Will automatically download, and install.
 - Runs the program using `pm2` so it will always restart if it stops.
 - Persist the app data using a `/data` volume.
-- New releases for this repo are done automatically by [semantic-release]()
+- New releases for this repo are done automatically by [semantic-release](https://github.com/semantic-release/semantic-release)
 - Every commit is build by [CircleCI](https://circleci.com/gh/cyclecheck/api-server-docker).
   - Any commit to `master` will trigger the running of `semantic-release`.
   - `semantic-release` will analyze the commit messages and determine if a new release is required.
@@ -22,7 +22,7 @@ A container for running the [API Server](https://github.com/cyclecheck/api-serve
 
 ## Building
 
-Available on Docker Hub as [jordond/cyclecheck-api](https://cloud.docker.com/u/jordond/repository/docker/jordond/cyclecheck-api).
+Available on Docker Hub as [jordond/cyclecheck-api](https://hub.docker.com/r/jordond/cyclecheck-api).
 
 ### Manual
 
