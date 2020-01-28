@@ -20,7 +20,7 @@
     "@semantic-release/exec": "3.3.8",
     "@semantic-release/git": "7.0.18",
     "commitizen": "4.0.3",
-    "cz-conventional-changelog": "3.0.2",
+    "cz-conventional-changelog": "3.1.0",
     "semantic-release": "15.14.0"
   },
   "config": {
