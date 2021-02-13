@@ -1,4 +1,4 @@
-FROM node:14.15.4-stretch
+FROM node:14.15.5-stretch
 LABEL author=cyclecheck
 LABEL repo='https://github.com/cyclecheck/api-server-docker'
 
